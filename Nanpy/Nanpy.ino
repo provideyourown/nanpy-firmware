@@ -51,6 +51,9 @@
 #include <Adafruit_TLC5947.h>
 #endif
 
+#if USE_EnergyMonitor
+#include <EnergyMonitor.h>
+#endif
 
 #include "MCP41xxxClass.h"
 #include "BaseClass.h"
@@ -81,6 +84,8 @@
 #include "EspClass.h"
 #include "UltrasonicClass.h"
 #include "ColorSensorClass.h"
+
+#include "EmonClass.h"
 
 using namespace nanpy;
 
@@ -120,6 +125,8 @@ void setup() {
     REGISTER_CLASS_CONDITIONAL(UltrasonicClass, USE_Ultrasonic);
     REGISTER_CLASS_CONDITIONAL(ColorSensorClass, USE_ColorSensor);
     
+    REGISTER_CLASS_CONDITIONAL(EmonClass, USE_EnergyMonitor);
+
     ComChannel::connect();
 }
 
