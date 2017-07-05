@@ -58,6 +58,10 @@ int nanpy::MethodDescriptor::getInt(int n) {
     return atoi(this->stack[n]);
 };
 
+unsigned long nanpy::MethodDescriptor::getULong(int n) {
+    return strtoul(this->stack[n], (char **)NULL, 10); 
+};
+
 byte nanpy::MethodDescriptor::getByte(int n) {
     return byte(getInt(n));
 };
